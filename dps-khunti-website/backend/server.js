@@ -8,7 +8,10 @@ import announcementsRoutes from './routes/announcements.js';
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://dpskhunti2025.liveblog365.com", // allow frontend hosted on profreehost
+  credentials: true
+}));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
